@@ -1,3 +1,4 @@
+import 'package:emart_app/views/splash_screen/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'consts/consts.dart';
 
@@ -18,6 +19,7 @@ class MyApp extends StatelessWidget {
         appBarTheme: const AppBarTheme(backgroundColor: Colors.transparent),
         fontFamily: regular,
       ),
+      home: SplashScreen(),
     );
   }
 }
