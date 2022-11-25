@@ -1,15 +1,14 @@
 import 'package:emart_app/consts/consts.dart';
 
-Widget ourButton({onPress, color, textColor, title}) {
-  String $title;
+Widget ourButton({onPress, color, textColor, String? title}) {
   return ElevatedButton(
     style: ElevatedButton.styleFrom(
-      backgroundColor: redColor,
+      backgroundColor: color,
       padding: const EdgeInsets.all(12),
     ),
     onPressed: () {
       onPress;
     },
-    child: Text("$title"),
+    child: title!.text.color(textColor).fontFamily(bold).make(),
   );
 }
