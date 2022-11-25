@@ -1,3 +1,12 @@
 const appname = "Infinity Mart";
 const appversion = "Version 1.0.0";
 const credits = "@Infinity_devs";
+const email = "Email";
+const emailHint = "abc@infinity.com";
+const password = "Password";
+const passwordHint = "******";
+const forgetPass = "Forget Password";
+const login = "Log in";
+const signUp = "Sign Up";
+const createnewAccount = "Create a new Account";
+const loginwith = "Login with";
