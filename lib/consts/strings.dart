@@ -9,4 +9,4 @@ const forgetPass = "Forget Password";
 const login = "Log in";
 const signUp = "Sign Up";
 const createnewAccount = "Create a new Account";
-const loginwith = "Login with";
+const loginwith = "Log in with";
