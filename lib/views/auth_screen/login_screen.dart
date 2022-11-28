@@ -2,6 +2,7 @@
 
 import 'package:emart_app/consts/consts.dart';
 import 'package:emart_app/consts/lists.dart';
+import 'package:emart_app/views/auth_screen/home_screen/home_screen.dart';
 import 'package:emart_app/views/auth_screen/signup_screen.dart';
 import 'package:emart_app/widgets_common/applogo_widget.dart';
 import 'package:emart_app/widgets_common/bg_widget.dart';
@@ -47,13 +48,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 //     .width(context.screenWidth - 50)
                 //     .make(),
                 ourButton(
-                        color: redColor,
-                        title: login,
-                        textColor: whiteColor,
-                        onPress: () {})
-                    .box
-                    .width(context.screenWidth - 50)
-                    .make(),
+                    color: redColor,
+                    title: login,
+                    textColor: whiteColor,
+                    onPress: () {
+                      Get.to(() => homeScreen());
+                    }).box.width(context.screenWidth - 50).make(),
                 7.heightBox,
                 createnewAccount.text.color(fontGrey).make(),
                 5.heightBox,
