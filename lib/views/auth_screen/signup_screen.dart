@@ -20,6 +20,8 @@ class SignupScreen extends StatefulWidget {
 }
 
 class _SignupScreenState extends State<SignupScreen> {
+  bool? isCheck = false;
+
   @override
   Widget build(BuildContext context) {
     return bgWidget(
@@ -39,17 +41,21 @@ class _SignupScreenState extends State<SignupScreen> {
                 customTextField(hint: emailHint, title: email),
                 customTextField(hint: passwordHint, title: password),
                 customTextField(hint: passwordHint, title: retypePassword),
-                Align(
-                    alignment: Alignment.centerRight,
-                    child: TextButton(
-                        onPressed: () {}, child: forgetPass.text.make())),
-                5.heightBox,
+                // Align(
+                //     alignment: Alignment.centerRight,
+                //     child: TextButton(
+                //         onPressed: () {}, child: forgetPass.text.make())),
+                13.heightBox,
                 Row(
                   children: [
                     Checkbox(
                       checkColor: redColor,
-                      value: false,
-                      onChanged: (newValue) {},
+                      value: isCheck,
+                      onChanged: (newValue) {
+                        setState(() {
+                          isCheck = newValue;
+                        });
+                      },
                     ),
                     5.widthBox,
                     Expanded(
@@ -58,26 +64,26 @@ class _SignupScreenState extends State<SignupScreen> {
                         TextSpan(
                           text: "I agree to the ",
                           style: TextStyle(
-                            fontFamily: bold,
+                            fontFamily: regular,
                             color: fontGrey,
                           ),
                         ),
                         TextSpan(
                             text: termandPrivacy,
                             style: TextStyle(
-                              fontFamily: bold,
+                              fontFamily: regular,
                               color: redColor,
                             )),
                         TextSpan(
                             text: " & ",
                             style: TextStyle(
-                              fontFamily: bold,
+                              fontFamily: regular,
                               color: fontGrey,
                             )),
                         TextSpan(
                             text: privacyPolicy,
                             style: TextStyle(
-                              fontFamily: bold,
+                              fontFamily: regular,
                               color: redColor,
                             )),
                       ])),
@@ -86,7 +92,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 5.heightBox,
                 ourButton(
-                        color: redColor,
+                        color: isCheck == true ? redColor : lightGrey,
                         title: signUp,
                         textColor: whiteColor,
                         onPress: () {})
@@ -94,23 +100,15 @@ class _SignupScreenState extends State<SignupScreen> {
                     .width(context.screenWidth - 50)
                     .make(),
                 10.heightBox,
-                RichText(
-                    text: TextSpan(children: [
-                  TextSpan(
-                      text: alreadyHaveAccount,
-                      style: TextStyle(
-                        fontFamily: bold,
-                        color: fontGrey,
-                      )),
-                  TextSpan(
-                      text: login,
-                      style: TextStyle(
-                        fontFamily: bold,
-                        color: redColor,
-                      ))
-                ])).onTap(() {
-                  Get.back();
-                })
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    alreadyHaveAccount.text.color(fontGrey).make(),
+                    login.text.color(redColor).make().onTap(() {
+                      Get.back();
+                    })
+                  ],
+                )
               ],
             )
                 .box
