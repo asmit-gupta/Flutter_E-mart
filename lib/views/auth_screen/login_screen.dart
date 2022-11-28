@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:emart_app/consts/consts.dart';
+import 'package:emart_app/consts/lists.dart';
 import 'package:emart_app/widgets_common/applogo_widget.dart';
 import 'package:emart_app/widgets_common/bg_widget.dart';
 import 'package:emart_app/widgets_common/custom_textfield.dart';
@@ -20,6 +21,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return bgWidget(
         child: Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Column(
           children: [
@@ -27,7 +29,7 @@ class _LoginScreenState extends State<LoginScreen> {
             applogoWidget(),
             10.heightBox,
             "Log in to $appname".text.fontFamily(bold).white.size(18).make(),
-            10.heightBox,
+            15.heightBox,
             Column(
               children: [
                 customTextField(hint: emailHint, title: email),
@@ -49,8 +51,9 @@ class _LoginScreenState extends State<LoginScreen> {
                     .box
                     .width(context.screenWidth - 50)
                     .make(),
-                5.heightBox,
+                7.heightBox,
                 createnewAccount.text.color(fontGrey).make(),
+                5.heightBox,
                 ourButton(
                   color: Color.fromARGB(255, 195, 188, 126),
                   title: signUp,
@@ -60,6 +63,22 @@ class _LoginScreenState extends State<LoginScreen> {
                 10.heightBox,
                 loginwith.text.color(fontGrey).make(),
                 5.heightBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: List.generate(
+                      3,
+                      (index) => Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: CircleAvatar(
+                              backgroundColor: lightGrey,
+                              radius: 25,
+                              child: Image.asset(
+                                socialIconList[index],
+                                width: 30,
+                              ),
+                            ),
+                          )),
+                )
               ],
             )
                 .box
@@ -67,6 +86,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 .rounded
                 .padding(const EdgeInsets.all(16))
                 .width(context.screenWidth - 70)
+                .shadowSm
                 .make()
           ],
         ),
