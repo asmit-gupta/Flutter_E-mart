@@ -9,4 +9,6 @@ Widget homeButtons({width, height, String? title, icon, onPress}) {
       title!.text.fontFamily(semibold).color(darkFontGrey).make()
     ],
   ).box.rounded.white.size(width, height).make();
+
+  //this button will be used at many places in home screen as this is just a template.
 }
